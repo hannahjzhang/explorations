@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Module 4</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+
+  <style id="compiled-css" type="text/css">
+      .page-container {
+  font-family: 'Karla', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  color: black;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 24px;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+.number-container {
+  color: #4F7CFE;
+  text-align: left;
+  margin-left: 150px;
+  margin-right: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  background-color: #e9ebf0;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  display: block;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: initial;
+  margin-left: auto;
+  margin-right: auto;
+}
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+
+</head>
+<body>
+    <head>
+  <!-- for styling purposes -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+  </style>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <!-- content -->
+  <div id="hb-div" class="page-container">
+    <script id="hb-template" type="text/x-handlebars-template">
+      <!-- adding text declared in js -->
+      <h3> {{title}} </h3>
+
+      <!--addihttps://jsfiddle.net/hannahjzhang/9qedtp6b/37/#forkng numbers in an array using logic and a loop -->
+			<div class="number-container">
+        {{#each numbers}}
+          {{#if_odd this}}
+            <p>{{this}}</p>
+          {{/if_odd}}
+        {{/each}}
+      </div>
+
+      <!-- adding image -->
+      <img src="https://cdn2.iconfinder.com/data/icons/globe-and-earth/100/globe-14-512.png" alt="Avatar" class="image">
+    </script>
+  </div>
+</body>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+/* creating a helper function to display only odd numbers */
+Handlebars.registerHelper('if_odd', function(a, opts) {
+	if (a % 2 !== 0) {
+  	return opts.fn(this);
+  }
+  else {
+  	return opts.inverse(this);
+  }
+})
+
+/* use jQuery library */
+var source = $('#hb-template').html();
+var template= Handlebars.compile(source);
+
+/* use the content here in html file */
+var context = {
+title:"Hello World!",
+subtitle:"My name is Hannah",
+numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+};
+var html = template(context);
+$('#hb-div').html(html);
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "9qedtp6b"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</body>
+</html>
