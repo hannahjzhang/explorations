@@ -1,0 +1,37 @@
+/* html element class, changing image size */
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* changing the header text */
+h1 {
+  font-family: 'Verdana', sans-serif;
+  color: purple;
+  text-align: center;
+}
+
+/* changing background of the entire page */
+body {
+  background-color: white;
+  min-height: 710px;
+  /* if you want a specific color, search up hex color picker and find the hex number from there */
+  background-image: linear-gradient(white, #c3defa);
+}
+
+/* make a box around the link */
+a {
+  display: block;
+  color: white;
+  background-color: #6199d4;
+  cursor: pointer;
+  font-family: 'Verdana', sans-serif;
+  text-align: center;
+  /* margin is outside, padding is within */
+  margin: 30px;
+  padding: 10px;
+}
